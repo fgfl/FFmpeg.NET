@@ -2881,12 +2881,12 @@ void FFmpeg::AVFrame::pkt_pos::set(Int64 value)
 
 Int64 FFmpeg::AVFrame::pkt_duration::get()
 {
-	DYNAMIC_DEF_API(AVUtil,Int64,((::AVFrame*)m_pPointer)->pkt_duration,av_frame_get_pkt_duration,::AVFrame *);
+	// DYNAMIC_DEF_API(AVUtil,Int64,((::AVFrame*)m_pPointer)->pkt_duration,av_frame_get_pkt_duration,::AVFrame *);
 	return av_frame_get_pkt_duration((::AVFrame*)m_pPointer);
 }
 void FFmpeg::AVFrame::pkt_duration::set(Int64 value)
 {
-	LOAD_API(AVUtil,void,av_frame_set_pkt_duration,::AVFrame *,Int64);
+	// LOAD_API(AVUtil,void,av_frame_set_pkt_duration,::AVFrame *,Int64);
 	if (av_frame_set_pkt_duration)
 	{
 		av_frame_set_pkt_duration((::AVFrame*)m_pPointer, value);

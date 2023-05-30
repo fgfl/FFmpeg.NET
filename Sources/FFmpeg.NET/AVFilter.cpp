@@ -1975,7 +1975,7 @@ FFmpeg::AVBufferRef^ FFmpeg::AVBufferSink::hw_frames_ctx::get()
 //////////////////////////////////////////////////////
 FFmpeg::AVRESULT FFmpeg::AVBufferSink::get_frame(AVFrame^ frame, AVBufferSinkFlags flags)
 {
-	DYNAMIC_DEF_API(AVFilter,int,AVERROR(ENOSYS),av_buffersink_get_frame_flags,::AVFilterContext *,::AVFrame*,int);
+	// DYNAMIC_DEF_API(AVFilter,int,AVERROR(ENOSYS),av_buffersink_get_frame_flags,::AVFilterContext *,::AVFrame*,int);
 	return av_buffersink_get_frame_flags(
 		((::AVFilterContext *)m_pContext->_Pointer.ToPointer()), 
 		((::AVFrame*)frame->_Pointer.ToPointer()),
@@ -1983,7 +1983,7 @@ FFmpeg::AVRESULT FFmpeg::AVBufferSink::get_frame(AVFrame^ frame, AVBufferSinkFla
 }
 FFmpeg::AVRESULT FFmpeg::AVBufferSink::get_frame(AVFrame^ frame)
 {
-	DYNAMIC_DEF_API(AVFilter,int,AVERROR(ENOSYS),av_buffersink_get_frame,::AVFilterContext *,::AVFrame*);
+	// DYNAMIC_DEF_API(AVFilter,int,AVERROR(ENOSYS),av_buffersink_get_frame,::AVFilterContext *,::AVFrame*);
 	return av_buffersink_get_frame(
 		((::AVFilterContext *)m_pContext->_Pointer.ToPointer()), 
 		((::AVFrame*)frame->_Pointer.ToPointer()));
@@ -2116,19 +2116,19 @@ FFmpeg::AVRESULT FFmpeg::AVBufferSrc::parameters_set(AVBufferSrcParameters^ para
 }
 FFmpeg::AVRESULT FFmpeg::AVBufferSrc::write_frame(AVFrame^ frame)
 {
-	DYNAMIC_DEF_API(AVFilter,int,AVERROR(ENOSYS),av_buffersrc_write_frame,::AVFilterContext *,::AVFrame*);
+	// DYNAMIC_DEF_API(AVFilter,int,AVERROR(ENOSYS),av_buffersrc_write_frame,::AVFilterContext *,::AVFrame*);
 	return av_buffersrc_write_frame((::AVFilterContext *)m_pContext->_Pointer.ToPointer(),
 		frame != nullptr ? (::AVFrame*)frame->_Pointer.ToPointer() : nullptr);
 }
 FFmpeg::AVRESULT FFmpeg::AVBufferSrc::add_frame(AVFrame^ frame)
 {
-	DYNAMIC_DEF_API(AVFilter,int,AVERROR(ENOSYS),av_buffersrc_add_frame,::AVFilterContext *,::AVFrame*);
+	// DYNAMIC_DEF_API(AVFilter,int,AVERROR(ENOSYS),av_buffersrc_add_frame,::AVFilterContext *,::AVFrame*);
 	return av_buffersrc_add_frame((::AVFilterContext *)m_pContext->_Pointer.ToPointer(),
 		frame != nullptr ? (::AVFrame*)frame->_Pointer.ToPointer() : nullptr);
 }
 FFmpeg::AVRESULT FFmpeg::AVBufferSrc::add_frame(AVFrame^ frame,AVBufferSrcFlags flags)
 {
-	DYNAMIC_DEF_API(AVFilter,int,AVERROR(ENOSYS),av_buffersrc_add_frame_flags,::AVFilterContext *,::AVFrame*,int);
+	// DYNAMIC_DEF_API(AVFilter,int,AVERROR(ENOSYS),av_buffersrc_add_frame_flags,::AVFilterContext *,::AVFrame*,int);
 	return av_buffersrc_add_frame_flags((::AVFilterContext *)m_pContext->_Pointer.ToPointer(),
 		frame != nullptr ? (::AVFrame*)frame->_Pointer.ToPointer() : nullptr,(int)flags);
 }

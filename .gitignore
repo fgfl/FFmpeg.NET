@@ -33,3 +33,7 @@
 
 *.CopyComplete
 *.cache
+
+
+Output
+.vs

@@ -714,7 +714,7 @@ public enum class AVColorTransferCharacteristic
 //////////////////////////////////////////////////////
 /**
 * YUV colorspace type.
-* These values match the ones defined by ISO/IEC 23001-8_2013 § 7.3.
+* These values match the ones defined by ISO/IEC 23001-8_2013 ï¿½ 7.3.
 */
 /// AVCOL_SPC_*
 public value class AVColorSpace
@@ -2780,6 +2780,7 @@ ref class AVDictionary;
 //////////////////////////////////////////////////////
 #define LOAD_API(lib,result,api,...) \
 	typedef result (WINAPIV *PFN_##api)(__VA_ARGS__); \
+	if (AVBase::m_hLib##lib == nullptr) AVLog::log(nullptr, AVLogLevel::Error, "cannot load " + #api + ": " + #lib + " is not loaded"); \
 	PFN_##api api = (AVBase::m_hLib##lib != nullptr ? (PFN_##api)GetProcAddress(AVBase::m_hLib##lib,#api) : nullptr);
 //////////////////////////////////////////////////////
 #define DYNAMIC_API(lib,result,api,...) \
