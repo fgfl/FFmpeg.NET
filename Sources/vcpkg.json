@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "just-give-me-ffmpeg-dlls",
+  "dependencies": [
+    {
+      "name": "ffmpeg",
+      "version>=": "4.3.2#11",
+      "features": ["freetype"]
+    }
+  ],
+  "overrides": [
+    {
+      "name": "ffmpeg",
+      "version": "4.3.2#11"
+    }
+  ],
+  "builtin-baseline": "223b8d5695bd0615e1eeba393c64770f6faf20e7"
+}

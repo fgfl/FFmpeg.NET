@@ -37,3 +37,6 @@
 
 Output
 .vs
+
+# Generated build files
+Sources/Examples/proj/obj/*
