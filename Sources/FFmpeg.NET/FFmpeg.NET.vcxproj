@@ -136,7 +136,8 @@
       <AdditionalLibraryDirectories>../../ThirdParty/FFmpeg/4.2.2/Lib/$(PlatformTarget)/</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)\..\..\ThirdParty\ffmpeg\4.2.2\bin\$(PlatformTarget)\*.dll" "$(TargetDir)" /y /D</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
