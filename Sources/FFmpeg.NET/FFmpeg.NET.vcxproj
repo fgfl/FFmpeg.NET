@@ -36,7 +36,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -101,6 +101,10 @@
     <VcpkgTriplet>x64-windows-rel</VcpkgTriplet>
     <VcpkgInstalledDir>..\..\..\vcpkg\vcpkg_installed</VcpkgInstalledDir>
   </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgInstalledDir>..\..\..\vcpkg\vcpkg_installed</VcpkgInstalledDir>
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -126,18 +130,17 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>../../ThirdParty/FFmpeg/4.2.2/include;../../ThirdParty/FFmpeg/4.2.2/sources</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\vcpkg\vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>
       </AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../ThirdParty/FFmpeg/4.2.2/Lib/$(PlatformTarget)/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../../vcpkg/vcpkg_installed/debug/lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy "..\..\..\vcpkg\vcpkg_installed\x64-windows\debug\bin\*.dll" "$(TargetDir)" /y /D</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -163,17 +166,17 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>../../ThirdParty/FFmpeg/4.2.2/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\vcpkg\vcpkg_installed\x64-windows\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>
       </AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../ThirdParty/FFmpeg/4.2.2/Lib/${Configuration}</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../../vcpkg/vcpkg_installed/x64-windows/lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)\..\..\ThirdParty\ffmpeg\4.2.2\bin\$(PlatformTarget)\*.dll" "$(TargetDir)" /y /D</Command>
+      <Command>xcopy "..\..\..\vcpkg\vcpkg_installed\x64-windows-rel\bin\*.dll" "$(TargetDir)" /y /D</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
