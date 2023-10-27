@@ -137,10 +137,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>
       </AdditionalDependencies>
-      <AdditionalLibraryDirectories>../../../vcpkg/vcpkg_installed/debug/lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../../vcpkg/vcpkg_installed/x64-windows/debug/bin</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "..\..\..\vcpkg\vcpkg_installed\x64-windows\debug\bin\*.dll" "$(TargetDir)" /y /D</Command>
+      <Command>xcopy "..\..\vcpkg\vcpkg_installed\x64-windows\debug\bin\*.dll" "$(TargetDir)" /y /D &amp;&amp; xcopy "..\..\vcpkg\vcpkg_installed\x64_windows\debug\bin\*.pdb" "$(TargetDir)" /y /D;</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
